@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { decrement, increment, reset } from './CounterSlice'
+import { decrement, increment, incrementByAmount, reset } from './CounterSlice'
 
 const CounterView = () => {
     const count = useSelector((state) => state.counter.count)
@@ -32,6 +32,14 @@ const CounterView = () => {
                         }
                     }
                 className='border bg-red-500 p-2 rounded-lg'>Decrement</button>
+                <button
+                    onClick={
+                        () => {
+                            dispatch(incrementByAmount(5))
+                        }
+                    }
+                    className='border bg-yellow-500 p-2 rounded-lg'>Increment by 5</button>
+
             </div>
         </div>
     )
